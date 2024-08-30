@@ -3,4 +3,4 @@
 This project builds https://www.stunnel.org[stunnel] as a statically linked binary.
 
 
-<!--- trigger --->
+<!-- trigger -->
