@@ -33,3 +33,4 @@ mv src/stunnel ../dist/$BIN_NAME
 
 cd ../dist
 sha1sum $BIN_NAME > $BIN_NAME.sha1
+sha256sum $BIN_NAME > $BIN_NAME.sha256
