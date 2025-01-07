@@ -2,13 +2,13 @@ name: Build
 on: push
 
 env:
-  STUNNEL_VERSION: 5.72
+  STUNNEL_VERSION: 5.74
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container:
-      image: docker://alpine:3.13
+      image: docker://alpine:latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
