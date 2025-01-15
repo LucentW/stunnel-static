@@ -30,7 +30,7 @@ jobs:
       image: docker://i386/alpine:latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
 
       - name: Install dependencies and build stunnel
         run: ./build.sh
