@@ -21,6 +21,8 @@ jobs:
     container:
       image: docker://alpine:latest
     steps:
+      - name: debug list
+        run: ls
       - name: Install dependencies and build stunnel
         run: ./build.sh
 
@@ -35,6 +37,8 @@ jobs:
     container:
       image: docker://i386/alpine:latest
     steps:
+      - name: debug list
+        run: ls
       - name: Install dependencies and build stunnel
         run: ./build.sh
 
