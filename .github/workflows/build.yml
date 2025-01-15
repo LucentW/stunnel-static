@@ -11,7 +11,7 @@ jobs:
       image: docker://alpine:latest
     steps:
       - name: Checkout repository
-        uses: taiki-e/checkout-action@v1
+        uses: actions/checkout@v2
 
   build-x86_64:
     needs: [checkout]
