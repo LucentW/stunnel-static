@@ -11,7 +11,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          path: 'build'
+          path: '.'
 
   build-x86_64:
     needs: [checkout]
@@ -21,8 +21,6 @@ jobs:
     container:
       image: docker://alpine:latest
     steps:
-      - name: Move into directory
-        run: cd /__w/stunnel-static/stunnel-static/build
       - name: Install dependencies and build stunnel
         run: ./build.sh
 
@@ -37,8 +35,6 @@ jobs:
     container:
       image: docker://i386/alpine:latest
     steps:
-      - name: Move into directory
-        run: cd /__w/stunnel-static/stunnel-static/build
       - name: Install dependencies and build stunnel
         run: ./build.sh
 
@@ -56,4 +52,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           fail_on_unmatched_files: true
-          files: build/dist/*
+          files: dist/*
