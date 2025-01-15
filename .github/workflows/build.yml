@@ -7,26 +7,22 @@ env:
 jobs:
   checkout:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./build
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        with:
+          path: 'build'
 
   build-x86_64:
     needs: [checkout]
     env:
       DEST_ARCH: x86_64
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./build
     container:
       image: docker://alpine:latest
     steps:
       - name: Move into directory
-        run: 
+        run: cd build
       - name: Install dependencies and build stunnel
         run: ./build.sh
 
@@ -41,6 +37,8 @@ jobs:
     container:
       image: docker://i386/alpine:latest
     steps:
+      - name: Move into directory
+        run: cd build
       - name: Install dependencies and build stunnel
         run: ./build.sh
 
@@ -58,4 +56,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           fail_on_unmatched_files: true
-          files: dist/*
+          files: build/dist/*
