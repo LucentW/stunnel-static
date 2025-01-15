@@ -26,7 +26,7 @@ ls -la src/stunnel
 strip src/stunnel
 file src/stunnel
 
-BIN_NAME="stunnel-$STUNNEL_VERSION-$(uname -m)-linux"
+BIN_NAME="stunnel-$STUNNEL_VERSION-$DEST_ARCH-linux"
 
 mkdir -p ../dist
 mv src/stunnel ../dist/$BIN_NAME
