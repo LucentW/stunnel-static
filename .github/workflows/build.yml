@@ -5,13 +5,15 @@ env:
   STUNNEL_VERSION: 5.74
 
 jobs:
-  build:
+  build-x86_64:
+    env:
+      DEST_ARCH: x86_64
     runs-on: ubuntu-latest
     container:
       image: docker://alpine:latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: taiki-e/checkout-action@v1
 
       - name: Install dependencies and build stunnel
         run: ./build.sh
@@ -24,13 +26,16 @@ jobs:
         with:
           fail_on_unmatched_files: true
           files: dist/*
+          
   build-i686:
+    env:
+      DEST_ARCH: i686
     runs-on: ubuntu-latest
     container:
       image: docker://i386/alpine:latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v1
+        uses: taiki-e/checkout-action@v1
 
       - name: Install dependencies and build stunnel
         run: ./build.sh
