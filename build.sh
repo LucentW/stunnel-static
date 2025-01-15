@@ -28,9 +28,9 @@ file src/stunnel
 
 BIN_NAME="stunnel-$STUNNEL_VERSION-$DEST_ARCH-linux"
 
-mkdir -p ../dist
-mv src/stunnel ../dist/$BIN_NAME
+mkdir -p $GITHUB_WORKSPACE/dist
+mv src/stunnel $GITHUB_WORKSPACE/dist/$BIN_NAME
 
-cd ../dist
+cd $GITHUB_WORKSPACE/dist
 sha1sum $BIN_NAME > $BIN_NAME.sha1
 sha256sum $BIN_NAME > $BIN_NAME.sha256
