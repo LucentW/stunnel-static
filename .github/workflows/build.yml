@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: debug list
         run: ls
+      - name: where am i
+        run: pwd
       - name: Install dependencies and build stunnel
         run: ./build.sh
 
@@ -31,14 +33,13 @@ jobs:
     env:
       DEST_ARCH: i686
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./build
     container:
       image: docker://i386/alpine:latest
     steps:
       - name: debug list
         run: ls
+      - name: where am i
+        run: pwd
       - name: Install dependencies and build stunnel
         run: ./build.sh
 
