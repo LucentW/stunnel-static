@@ -22,7 +22,7 @@ jobs:
       image: docker://alpine:latest
     steps:
       - name: Move into directory
-        run: cd build
+        run: cd /__w/stunnel-static/stunnel-static/build
       - name: Install dependencies and build stunnel
         run: ./build.sh
 
@@ -38,7 +38,7 @@ jobs:
       image: docker://i386/alpine:latest
     steps:
       - name: Move into directory
-        run: cd build
+        run: cd /__w/stunnel-static/stunnel-static/build
       - name: Install dependencies and build stunnel
         run: ./build.sh
 
